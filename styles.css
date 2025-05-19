@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.calendar-container {
+    background: rgba(255,255,255,0.95);
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    width: 98vw;
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+    border: 1.5px solid #e3e3e3;
+    backdrop-filter: blur(2px);
+}
+
+h1 {
+    text-align: center;
+    color: #2e3a59;
+    margin: 0.5rem 0 1rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #e0eafc;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(21, 1fr);
+    grid-auto-rows: 32px;
+    gap: 4px;
+    flex: 1;
+    overflow: hidden;
+    padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+    background: rgba(240,245,255,0.7);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.07);
+}
+
+.day-cell {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.18s, background 0.18s, transform 0.12s;
+    position: relative;
+    background: #fff;
+    font-size: 0.85rem;
+    min-height: 32px;
+    min-width: 18px;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgba(31, 38, 135, 0.04);
+    will-change: transform;
+}
+
+.day-cell:hover {
+    background: #f0f7ff;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+    transform: scale(1.07);
+    z-index: 2;
+}
+
+.day-cell:active {
+    background: #e3f2fd;
+    transform: scale(0.97);
+}
+
+.day-cell.checked {
+    background: #e8f5e9;
+    box-shadow: 0 2px 8px 0 rgba(76, 175, 80, 0.10);
+    animation: pop 0.18s;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.week-complete {
+    background: #b2f7cc !important;
+    box-shadow: 0 2px 12px 0 rgba(76, 175, 80, 0.10) !important;
+}
+
+.week-complete:hover {
+    background: #a3e9c3 !important;
+}
+
+.month-complete {
+    background: #43a047 !important;
+    color: #fff;
+    box-shadow: 0 2px 16px 0 rgba(56, 142, 60, 0.15) !important;
+}
+
+.month-complete .day-number {
+    color: #fff !important;
+    text-shadow: 0 1px 2px #388e3c;
+}
+
+.month-complete:hover {
+    background: #388e3c !important;
+}
+
+.day-number {
+    font-size: 0.85rem;
+    color: #2e3a59;
+    margin-bottom: 0;
+    line-height: 1;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px #e0eafc;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    margin: 2px auto 0 auto;
+    display: block;
+    cursor: pointer;
+    accent-color: #43a047;
+    transition: box-shadow 0.15s;
+    box-shadow: 0 1px 2px 0 rgba(31, 38, 135, 0.04);
+    border-radius: 4px;
+}
+
+.checkbox:active {
+    box-shadow: 0 0 0 2px #43a04733;
+}
+
+.counter {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #388e3c;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.message {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #1976d2;
+    margin-bottom: 0.5rem;
+    min-height: 1.5em;
+    transition: color 0.3s, font-size 0.3s;
+} 
